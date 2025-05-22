@@ -64,7 +64,7 @@ main() {
 
 install_chart_dependencies() {
     helm repo add bitnami https://charts.bitnami.com/bitnami
-    #helm repo add reactor https://charts.kube-reactor.com
+    helm repo add reactor https://charts.kube-reactor.com
 }
 
 get_changed_charts() {
