@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  reactor:
+  - apiVersion: v2
+    created: "2025-05-22T05:56:57.550749716Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.31.1
+    description: A shared library for Helm chart resources.
+    digest: 4a8469fa686f329e4fe5825abb6b4a6f97c80f90f6a0f9367935171e505b53c1
+    home: https://github.com/kube-reactor/charts
+    maintainers:
+    - email: adrian@fractalsynapse.com
+      name: adrianwebb
+      url: https://github.com/adrianwebb
+    name: reactor
+    type: library
+    urls:
+    - https://github.com/kube-reactor/charts/releases/download/reactor-0.2.2/reactor-0.2.2.tgz
+    version: 0.2.2
+generated: "2025-05-22T05:56:57.550756986Z"
