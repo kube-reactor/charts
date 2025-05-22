@@ -1,0 +1,31 @@
+{{/*
+Generate a multi-service application
+*/}}
+{{- define "reactor.app" -}}
+{{- $root := (index . 0) -}}
+{{- $app := (index . 1) | default $root -}}
+---
+{{- range $name, $account := $root.Values.serviceAccounts -}}
+{{ template "reactor.serviceAccount" (list $root $account $name) }}
+{{- end -}}
+{{- range $name, $role := $root.Values.roles -}}
+{{ template "reactor.role" (list $root $role $name) }}
+{{- end -}}
+{{- range $name, $account := $root.Values.serviceAccounts -}}
+{{ template "reactor.roleBinding" (list $root $account $name) }}
+{{- end -}}
+{{- range $name, $claim := $root.Values.pvc.claims -}}
+{{ template "reactor.pvc" (list $root $claim $name) }}
+{{- end -}}
+{{- range $name, $service := $app.services -}}
+{{- $schema := merge $service (dict "name" $name) -}}
+{{ template "reactor.serviceAccount" (list $root $schema "") }}
+{{ template "reactor.roleBinding" (list $root $schema "") }}
+{{ template "reactor.servicePvc" (list $root $schema) }}
+{{ template "reactor.deployment" (list $root $schema) }}
+{{ template "reactor.autoscaler" (list $root $schema) }}
+{{ template "reactor.service" (list $root $schema) }}
+{{ template "reactor.ingress" (list $root $schema) }}
+{{ template "reactor.prometheusRule" (list $root $schema) }}
+{{- end -}}
+{{- end -}}

@@ -1,0 +1,4 @@
+{{/*
+Generate an application
+*/}}
+{{ include "reactor.app" (list . .Values) }}

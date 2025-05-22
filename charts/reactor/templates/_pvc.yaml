@@ -1,0 +1,34 @@
+{{/*
+Generate shared persistent volume claims
+*/}}
+{{- define "reactor.pvc" -}}
+{{- $root := (index . 0) -}}
+{{- $claim := (index . 1) -}}
+{{- $name := (index . 2) -}}
+{{- if $claim }}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+{{- $name := include "reactor.serviceName" (list $root nil $name) }}
+{{ include "reactor.metadata" (list $root $claim $name) }}
+spec:
+  storageClassName: {{ $claim.storageClass | quote }}
+  accessModes:
+    - {{ $claim.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ $claim.size | quote }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Generate individual service persistent volume claims
+*/}}
+{{- define "reactor.servicePvc" -}}
+{{- $root := (index . 0) -}}
+{{- $service := (index . 1) -}}
+{{- $pvc := ($service.pvc | default (dict )) -}}
+{{- range $name, $claim := ($pvc.claims | default (dict )) -}}
+{{ template "reactor.pvc" (list $root $claim $name) }}
+{{- end -}}
+{{- end -}}

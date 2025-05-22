@@ -1,0 +1,16 @@
+{{/*
+Generate standardized resource metadata
+*/}}
+{{- define "reactor.metadata" -}}
+{{- $root := (index . 0) -}}
+{{- $service := (index . 1) -}}
+{{- $name := (index . 2) -}}
+metadata:
+  name: {{ $name | quote }}
+  namespace: {{ $root.Release.Namespace | quote }}
+  labels: {{- include "reactor.labels" (list $root $service $name) | nindent 4 }}
+  {{- $annotations := ternary (merge ($service.annotations | default (dict )) $root.Values.annotations) $root.Values.annotations (not (empty $service)) -}}
+  {{ if $annotations }}
+  annotations: {{- include "reactor.annotations" (list $root $service) | nindent 4 }}
+  {{- end -}}
+{{- end -}}
