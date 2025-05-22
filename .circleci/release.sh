@@ -127,11 +127,10 @@ update_index() {
     ls -la
     cat index.yaml
 
-    if ! git diff --quiet; then
+    if ! git diff --quiet || git ls-files -o --exclude-standard --error-unmatch index.yaml 2>/dev/null 1>&2; then
         git add .
         git commit --message="Update index.yaml [ci skip]" --signoff
         git push -q https://"${GH_TOKEN}"@github.com/"${GIT_USERNAME}"/"${GIT_REPOSITORY_NAME}".git  gh-pages
-
     fi
 }
 
