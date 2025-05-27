@@ -3,6 +3,25 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 0.0.0
+    created: "2025-05-27T15:46:37.561466501Z"
+    dependencies:
+    - name: reactor
+      repository: https://charts.kube-reactor.com
+      version: 0.2.x
+    description: A Helm chart for deploying flexible applications.
+    digest: 7926f0030643b4ab27626d49d096d0fadfd82a53fbb03554c47d37006b15efc4
+    home: https://github.com/kube-reactor/charts
+    maintainers:
+    - email: adrian@fractalsynapse.com
+      name: adrianwebb
+      url: https://github.com/adrianwebb
+    name: application
+    type: application
+    urls:
+    - https://github.com/kube-reactor/charts/releases/download/application-2.0.2/application-2.0.2.tgz
+    version: 2.0.2
+  - apiVersion: v2
+    appVersion: 0.0.0
     created: "2025-05-22T06:02:57.952883229Z"
     dependencies:
     - name: reactor
@@ -61,4 +80,4 @@ entries:
     urls:
     - https://github.com/kube-reactor/charts/releases/download/reactor-0.2.2/reactor-0.2.2.tgz
     version: 0.2.2
-generated: "2025-05-27T15:43:06.206392564Z"
+generated: "2025-05-27T15:46:37.561480085Z"
