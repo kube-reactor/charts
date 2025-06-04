@@ -1,0 +1,12 @@
+apiVersion: v2
+version: 0.1.0
+
+name: coredns-config
+type: application
+description: A Helm chart for configuring CoreDNS (derived from https://github.com/kostiantyn-matsebora/helm-coredns-custom).
+home: https://github.com/kube-reactor/charts
+
+maintainers:
+  - email: adrian@fractalsynapse.com
+    name: adrianwebb
+    url: https://github.com/adrianwebb

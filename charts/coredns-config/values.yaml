@@ -1,0 +1,10 @@
+hosts: []
+#  - name: longhorn.local
+#    ip : 192.168.1.100
+
+servers: {}
+#  local.server: |
+#    local:53 {
+#      log
+#      errors
+#      forward . 192.168.1.1
