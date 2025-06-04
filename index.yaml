@@ -39,6 +39,21 @@ entries:
     urls:
     - https://github.com/kube-reactor/charts/releases/download/application-2.0.1/application-2.0.1.tgz
     version: 2.0.1
+  coredns-config:
+  - apiVersion: v2
+    created: "2025-06-04T15:28:35.555525783Z"
+    description: A Helm chart for configuring CoreDNS (derived from https://github.com/kostiantyn-matsebora/helm-coredns-custom).
+    digest: 98dda6cf1de8e0b233a2c9ca9bcd06e56a29585afce45825d823c0bfbb99ade4
+    home: https://github.com/kube-reactor/charts
+    maintainers:
+    - email: adrian@fractalsynapse.com
+      name: adrianwebb
+      url: https://github.com/adrianwebb
+    name: coredns-config
+    type: application
+    urls:
+    - https://github.com/kube-reactor/charts/releases/download/coredns-config-0.1.0/coredns-config-0.1.0.tgz
+    version: 0.1.0
   reactor:
   - apiVersion: v2
     created: "2025-05-27T15:43:06.206382854Z"
@@ -80,4 +95,4 @@ entries:
     urls:
     - https://github.com/kube-reactor/charts/releases/download/reactor-0.2.2/reactor-0.2.2.tgz
     version: 0.2.2
-generated: "2025-05-27T15:46:37.561480085Z"
+generated: "2025-06-04T15:28:35.555543556Z"
