@@ -8,7 +8,7 @@ metadata:
 data:
 {{- if .Values.hosts }}
     hosts.override: |
-      hosts /etc/coredns/NodeHosts {
+      hosts {
         {{- range .Values.hosts }}
         {{ .ip }} {{ .name }}
         {{- end }}
